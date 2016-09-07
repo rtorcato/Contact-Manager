@@ -1,0 +1,87 @@
+#fh5co-hero {
+  background-color: #2e2e2e;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center left;
+  /*height: 600px;*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-hero {
+    background-position: center center;
+  }
+}
+
+#fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  #fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro > h1 {
+    letter-spacing: 4px;
+    font-size: 30px;
+    line-height: 42px;
+  }
+}
+#fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro > h2 {
+  letter-spacing: 4px;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  position: relative;
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro > h2 {
+    letter-spacing: 3px;
+  }
+}
+#fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro > h2 > span {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  background: rgba(255, 255, 255, 0.4);
+  width: 50px;
+  height: 3px;
+  left: 50%;
+  margin-left: -25px;
+}
+#fh5co-hero .fh5co-hero-wrap .btn {
+  color: #ffffff;
+}
+#fh5co-hero .fh5co-hero-wrap .btn:hover, #fh5co-hero .fh5co-hero-wrap .btn:active, #fh5co-hero .fh5co-hero-wrap .btn:focus {
+  background: #28bbf8;
+  border-color: #28bbf8;
+}
+
+body.inner-page #fh5co-hero {
+  height: 400px;
+}
+body.inner-page #fh5co-hero .fh5co-hero-wrap {
+  padding-top: 50px;
+  height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+  #fh5co-hero, .fh5co-hero-wrap {
+    position: relative;
+    padding: 4em 0 3em 0;
+    height: inherit !important;
+  }
+}
+
+
+
+#fh5co-hero {
+  -moz-transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+}

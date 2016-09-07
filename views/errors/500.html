@@ -1,0 +1,99 @@
+{% extends "./../layouts/error.html" %}
+{% block body %}
+<!--
+
+
+555555555555555555      000000000          000000000
+5::::::::::::::::5    00:::::::::00      00:::::::::00
+5::::::::::::::::5  00:::::::::::::00  00:::::::::::::00
+5:::::555555555555 0:::::::000:::::::00:::::::000:::::::0
+5:::::5            0::::::0   0::::::00::::::0   0::::::0
+5:::::5            0:::::0     0:::::00:::::0     0:::::0
+5:::::5555555555   0:::::0     0:::::00:::::0     0:::::0
+5:::::::::::::::5  0:::::0 000 0:::::00:::::0 000 0:::::0
+555555555555:::::5 0:::::0 000 0:::::00:::::0 000 0:::::0
+            5:::::50:::::0     0:::::00:::::0     0:::::0
+            5:::::50:::::0     0:::::00:::::0     0:::::0
+5555555     5:::::50::::::0   0::::::00::::::0   0::::::0
+5::::::55555::::::50:::::::000:::::::00:::::::000:::::::0
+ 55:::::::::::::55  00:::::::::::::00  00:::::::::::::00
+   55:::::::::55      00:::::::::00      00:::::::::00
+     555555555          000000000          000000000
+
+
+
+  This is the default "500: Server Error" page.
+  User agents that don't "Accept" HTML will see a JSON version instead.
+  You can customize the control logic for your needs in `config/500.js`
+
+  Sails considers a request in a "500: Server Error" state when
+  your app throws a catchable error (not inside of an asynchronous callback).
+
+  You can also trigger this response from one of your controllers or policies with:
+  `return res.serverError( e );`
+  (where `e` is an optional message, error, or array of errors to include in the response)
+
+-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
+<style>
+/* Styles included inline since you'll probably be deleting this page anyway */
+  pre {display: block; width: 75%; margin-left: auto; margin-right: auto;}
+  code {display:block;width:100%;padding:0;margin:0;overflow:scroll;}
+
+.title {
+  font-size: 45px;
+  padding:40px 0px 0px 20px;
+}
+.content{
+  color:white;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  font-size:14px;
+  width:100%;
+  align-items: center;
+  justify-content: center;
+}
+.content p{
+  padding:40px 0px;
+}
+.flexCenterContainer{
+  display: flex;
+  min-height: 500px;
+  align-items: center;
+}
+.error{
+  padding:20px 0px 20px 0px;
+}
+@media (min-width: 768px) {
+  .flexCenterContainer{
+
+  }
+  .title {
+    font-size: 72px;
+    margin-bottom: 60px;
+  }
+  min-height:600px;
+  .content {
+    font-size:20px;
+  }
+}
+</style>
+<div class="pageContainer-guest heroBackground flexCenterContainer">
+  <div class="content">
+		<div class="title">Internal Server Error</div>
+		<p>
+      {% if devMode == true %}
+      {{errorMessage}}
+      <pre class="error"><code>
+        {{error}}
+      </code></pre>
+      <br/><br/>
+      {% else %}
+      A team of highly trained people are working on this as we speak.<br/>
+      If the problem persists, please <a style="color:white" href="mailto://you@your-domain.com">contact the system administrator</a> and inform them of the time that the error occured, and anything you might have done that may have caused the error.
+      {% endif %}
+    </p>
+	</div>
+</div>
+{% endblock %}

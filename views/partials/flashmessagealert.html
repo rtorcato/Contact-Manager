@@ -1,0 +1,5 @@
+{% if flash.message.length > 0 %}
+    <div class="alert alert-{{ flash.messageLevel }} panel-shadowed">
+        <i class="fa fa-times-circle fa-2 pull-right" data-dismiss="alert" aria-hidden="true" style="cursor:pointer; font-size: 20px"></i> &nbsp;{{flash.message}}
+    </div>
+{% endif %}

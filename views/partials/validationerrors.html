@@ -1,0 +1,26 @@
+{% if validationErrors.length %}
+    <div class="alert alert-danger">
+      <i class="fa fa-times-circle fa-2 pull-right" data-dismiss="alert" aria-hidden="true" style="cursor:pointer; font-size: 20px"></i>
+        <strong>Whoops!</strong> There were some problems with your input.
+        <ul>
+          {% for verror in validationErrors %}
+                <li>
+                    {{verror.msg}}
+                </li>
+          {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+{% if databaseErrors %}
+      <div class="alert alert-{{flashMessageLevel}}">
+        <i class="fa fa-times-circle fa-2 pull-right" data-dismiss="alert" aria-hidden="true" style="cursor:pointer; font-size: 20px"></i>
+          <strong>Whoops!</strong> There were some problems with your input.
+          <ul>
+            {% for dberror in databaseErrors %}
+                  <li>
+                      {{dberror}}
+                  </li>
+            {% endfor %}
+          </ul>
+      </div>
+  {% endif %}

@@ -1,0 +1,11 @@
+{% include "./../partials/head.html" %}
+<body class="inner-page" id="app" style="">
+  {% include partialsPath + 'nav.html' %}
+  {% include partialsPath + 'nocookies.html' %}
+   {% block body %} This is the default content {% endblock %}
+   {% include partialsPath + 'scripts.html' %}
+   {% block scripts %}
+   <!-- PageSCRIPTS-->
+   {% endblock %}
+  </body>
+</html>

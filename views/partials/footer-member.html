@@ -1,0 +1,103 @@
+<nav id="bottomNavBar" class="navbar navbar-default navbar-fixed-bottom hidden-xs" role="navigation">
+  <div class="container-fluid">
+   <ul class="bottombarButtonsLeft nav navbar-nav">
+  <li>
+                  <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                  <a href="javascript:void(0);" class="showTooltip showleftMenuBTN hidden-xs" title="Hide Menu">
+                     <tooltip effect="scale" placement="top" content="Show Side Menu">
+                     <em class="fa fa-navicon"></em>
+                     </tooltip>
+                  </a>
+               </li>
+               </ul>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="pull-right nav navbar-nav">
+        {! <li><a class="top" rel="tooltip" data-placement="top" data-original-title="Back&nbsp;to&nbsp;top" href="#" title="Back&nbsp;to&nbsp;top">
+            <i class="fa fa-arrow-up fa-lg"></i></a></li> !}
+            <li><a title="Full Screen" href="javascript:void(0);" class="showTooltip fullScreenBTN ">
+                     <i class="fa fa-expand"></i>
+                  </a></li>
+                  <li>
+                  <a title="Connections" class="showTooltip showFriendsMenuBTN" href="javascript:void(0);">
+                     <i class="fa fa-group"></i>
+                  </a>
+               </li>
+                     <li>
+                     <a title="Connections" class="showTooltip showFriendsMenuBTN" href="javascript:void(0);">
+                        <i class="fa fa-comments"></i>
+                     </a>
+                  </li>
+
+            <li class="dropup feedback">
+            <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-bug fa-lg" title="Report Bug"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right dropdown-menu-form">
+              <li>
+                <div class="report">
+                  <h2 class="text-center">Report Bug</h2>
+                  <form class="doo" method="post" action="report.php">
+                    <div class="col-sm-12">
+                      <textarea required name="comment" class="form-control" placeholder="Please tell us what bug or issue you've found, provide as much detail as possible."></textarea>
+                      <input name="screenshot" type="hidden" class="screen-uri">
+                      <span class="screenshot pull-right"><i class="fa fa-camera cam" title="Take Screenshot"></i></span>
+                     </div>
+                     <div class="col-sm-12 clearfix">
+                      <button class="btn btn-primary btn-block">Submit Report</button>
+                     </div>
+                 </form>
+                </div>
+                <div class="loading text-center hideme">
+                  <h2>Please wait...</h2>
+                  <h2><i class="fa fa-refresh fa-spin"></i></h2>
+                </div>
+                <div class="reported text-center hideme">
+                  <h2>Thank you!</h2>
+                  <p>Your submission has been received, we will review it shortly.</p>
+                   <div class="col-sm-12 clearfix">
+                      <button class="btn btn-success btn-block do-close">Close</button>
+                   </div>
+                </div>
+                <div class="failed text-center hideme">
+                  <h2>Oh no!</h2>
+                  <p>It looks like your submission was not sent.<br><br><a href="mailto:">Try contacting us by the old method.</a></p>
+                   <div class="col-sm-12 clearfix">
+                      <button class="btn btn-danger btn-block do-close">Close</button>
+                   </div>
+                </div>
+              </li>
+            </ul>
+            </li>
+            <style>
+            .feedback{position: absolute;}
+
+.feedback textarea{height: 180px; }
+.feedback .screenshot{ position: relative; top: -24px; right: 10px; opacity: .6}
+.feedback .screenshot:hover{  opacity: 1}
+.feedback .reported p, .feedback .failed p  { height: 190px}
+
+
+.feedback.left{left:5px; bottom:15px}
+.feedback.right{right:5px; bottom:15px}
+
+.feedback .dropdown-menu{width: 290px;bottom: 55px;}
+.feedback.left .dropdown-menu{ left: 0px}
+.feedback.right .dropdown-menu{ right: 0px}
+.feedback .hideme{ display: none}
+            </style>
+            <li>
+              <a  title="Settings" class="showTooltip" title="Settings" href="/account/settings">
+              <tooltip effect="scale" placement="top" content="Settings">
+              <i class="fa fa-cogs fa-lg"></i>
+              </tooltip>
+              </a>
+            </li>
+            <li><a  class="showTooltip" title="Log&nbsp;Out" href="/auth/logout">
+              <tooltip effect="scale" placement="top" content="Log Out">
+              <i class="fa fa-power-off fa-lg"></i>
+              </tooltip>
+              </a></li>
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+<footer class="footer footer-member"></footer>

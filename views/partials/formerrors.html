@@ -1,0 +1,12 @@
+{% if validationErrors.length %}
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.
+        <ul>
+          {% for verror in validationErrors %}
+                <li>
+                    {{verror.msg}}
+                </li>
+          {% endfor %}
+        </ul>
+    </div>
+{% endif %}
