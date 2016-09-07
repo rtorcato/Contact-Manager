@@ -4,7 +4,7 @@ node_modules
 
 .DS_Store
 credentials.js
-#.env
+.env
 .well-known
 Procfile
 ASSETS
