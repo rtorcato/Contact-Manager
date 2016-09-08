@@ -44,4 +44,4 @@ $ npm install
 
 You can deploy a live copy of this application to Heroku with the button below.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://github.com/rtorcato/contactmanager)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/rtorcato/contactmanager)
