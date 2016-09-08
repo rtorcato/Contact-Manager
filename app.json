@@ -1,0 +1,8 @@
+{
+  "name": "Contact Manager",
+  "description": "An app that allows users to manage a contact list.",
+  "repository": "https://github.com/rtorcato/contactmanager",
+  "logo": "https://mlab.com/company/brand/resources/mLab-logo-onlight.png",
+  "keywords": ["node", "express", "angular", "MEAN", "mongodb"],
+  "addons": ["mongolab"]
+}
