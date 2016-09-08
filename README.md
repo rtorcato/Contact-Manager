@@ -19,4 +19,4 @@ Clicking on the widget will display a popup that lists the complete contact info
 Text attributes *italic*, **bold**,
 `monospace`, ~~strikethrough~~ .
 
-A [link](http://example.com).
+Visit Sample Site: [link](https://contactmanager.matrixdigital.com).

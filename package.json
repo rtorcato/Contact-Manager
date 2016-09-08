@@ -54,7 +54,9 @@
     "underscore": "^1.8.3",
     "uuid": "^2.0.2",
     "validator": "^5.4.0",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "ms": "^0.7.1",
+    "oembed-auto": "0.0.3"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
