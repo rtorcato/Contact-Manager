@@ -25,19 +25,28 @@ Ensure Node is installed. This can be done through your package manager or from 
 
 Clone this repository:
 ```term
-$ git clone https://github.com/flyingsparx/NodeDirectUploader.git
+$ git clone https://github.com/rtorcato/contactmanager.git
 ```
 
 Change directory into the application and use `npm` to install the application's dependencies:
 ```term
-$ cd NodeDirectUploader
+$ cd contactmanager
 $ npm install
+```
+Rename sample.env to .env
+```term
+$ mv sample.env .env
 ```
 
 ## Running the application
-* Set environment variables for your AWS access key, secret, and bucket name (see [companion article](https://devcenter.heroku.com/articles/s3-upload-node))
-* Run `node app`
-* Visit [localhost:3000/account](http://localhost:3000/account) to try it out
+* Set environment variables for your server by editing the .env file
+* Default port is 8080 and can be changed in the .env file
+
+```term
+$ npm start
+```
+
+* Visit [localhost:8080/](http://localhost:8080/) to try it out
 
 
 ## Deploying the application

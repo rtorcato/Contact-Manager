@@ -1,18 +1,19 @@
 'use strict';
-var express     = require('express');
-var app         = express();
-var HTTPS = require("https").Server(app);
-var HTTP = require('http').Server(app);
-// Create our Express router
-var router = express.Router();
+const express = require('express');
+const app = express();
+const flash = require('connect-flash');
+//var HTTPS = require("https").Server(app);
+const HTTP = require('http').Server(app);
 //
-var helper = require("./app/helpers/general.js");
-//helper.getOembed('test');
-//var oembed = require("oembed-auto");
+const passport = require("./app/setup/Passport");
+// Create our Express router
+const router = express.Router();
+//
+const helper = require("./app/helpers/general.js");
 // =======================
 // Config
 // =======================
-var config = require("./app/setup/Config").init(app, express);
+const config = require("./app/setup/Config").init(app, express);
 // =======================
 // Logging
 // =======================
@@ -29,7 +30,6 @@ const sessions = require('./app/setup/Sessions').init(app);
 // Security
 // =======================
 const security = require('./app/setup/Security').init(app);
-// We are going to protect /api routes with JWT
 // =======================
 // Models
 // =======================
@@ -39,15 +39,10 @@ const models = require('./app/setup/Models').init(app);
 // =======================
 const views = require('./app/setup/ViewEngine').init(app);
 // =======================
-// Flash
-// =======================
-var flash = require('connect-flash');
-app.use(flash());
-// =======================
 // Passport
 // =======================
-// //const passport = require("./app/setup/Passport");
-//var setUpPassport = require("./app/setup/Passport").init(app);
+
+passport.init(app);
 // =======================
 // API
 // =======================
@@ -56,17 +51,16 @@ const apiRoutes = require('./app/setup/Api').init(app);
 // Routes
 // =======================
 const routes = require('./app/setup/Routes').init(app);
-//
 // Register all our routes
 app.use(router);
 // =======================
 // Socket IO
 // =======================
-//const socketio = require('./app/setup/SocketIO').init(app, HTTP, HTTPS);
+//const socketio = require('./app/setup/SocketIO').init(app, HTTP);
 
 // =======================
 // start the server ======
 // =======================
-const server = require('./app/setup/Server').init(app, HTTP, HTTPS);
+const server = require('./app/setup/Server').init(app, HTTP);
 //////////////////////////
 module.exports = app;
