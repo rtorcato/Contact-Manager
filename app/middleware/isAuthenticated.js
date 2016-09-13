@@ -6,5 +6,5 @@ module.exports = function(req, res, next) {
   // if they aren't redirect them to the home page
   req.flash("messageLevel", "danger");
   req.flash("message", "You are not authorized to view that page");
-  res.redirect('/auth/login/?error=unauthorized');
+  res.redirect('/home?error=unauthorized');
 }

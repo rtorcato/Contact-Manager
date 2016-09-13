@@ -1,7 +1,6 @@
 'use strict';
 const express = require('express');
 const app = express();
-const flash = require('connect-flash');
 //var HTTPS = require("https").Server(app);
 const HTTP = require('http').Server(app);
 // Create our Express router
@@ -25,6 +24,11 @@ const databases = require('./app/setup/Databases').init(app);
 // Sessions
 // =======================
 const sessions = require('./app/setup/Sessions').init(app);
+// =======================
+// Flash
+// =======================
+var flash = require('connect-flash');
+app.use(flash());
 // =======================
 // Security
 // =======================
