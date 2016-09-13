@@ -38,7 +38,17 @@ gulp.task('default', function() {
       .pipe(notify("CSS Updated"))
 });
 
+/*
+gulp.task('js', function(done) => {
+    webpack(require('./webpack.config'), function(err, stats) {
+        if (err) throw new gutil.PluginError('webpack', err);
 
+        gutil.log('[webpack]', stats.toString('minimal'));
+
+        done();
+    });
+});
+ */
 
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch', function() {

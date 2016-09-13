@@ -1,6 +1,8 @@
 var Mailgun = require('mailgun-js');
 const url = require("url");
 var fs = require("fs");
+//var escapeHtml = require('escape-html');
+//var html = escapeHtml('foo & bar');
 
 module.exports = {
     // Generic error handler used by all endpoints.
