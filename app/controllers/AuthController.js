@@ -87,9 +87,9 @@ module.exports.controller = function(app) {
     }
 
     function showLoginErrorMessage(req, res, err, message) {
-
         req.flash('message', message);
         req.flash('messageLevel', 'danger');
+        console.log(err);
         res.redirect('/?error');
     }
 
