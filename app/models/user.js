@@ -30,7 +30,7 @@ var userSchema = new Schema({
     hash: String,
     salt: String,
     createdAt: { type: Date, default: Date.now },
-    username: { type: String, lowercase: true, unique: 'This username is already taken' },
+    //username: { type: String, lowercase: true, unique: 'This username is already taken' },
     registrationToken: { type: String, default: getToken() },
     registrationTokenExpires: { type: Date, default: setRegistrationExpirationDate() },
     passwordResetToken: String,
