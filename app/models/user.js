@@ -1,7 +1,7 @@
 // get an instance of mongoose and mongoose.Schema
 const mongoose = require('mongoose');
 var beautifyUnique = require('mongoose-beautiful-unique-validation');
-var mongooseTypes = require("mongoose-types");
+//var mongooseTypes = require("mongoose-types");
 //var useTimestamps = mongooseTypes.useTimestamps;
 const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
@@ -20,7 +20,8 @@ function getToken() {
     return uuid.v4();
     //return rand=Math.floor((Math.random() * 100) + 54);
 }
-
+//username: { type: String, lowercase: true, unique: 'This username is already taken' },
+//
 // User Schema
 var userSchema = new Schema({
     firstname: { type: String, required: true },
@@ -30,7 +31,6 @@ var userSchema = new Schema({
     hash: String,
     salt: String,
     createdAt: { type: Date, default: Date.now },
-    //username: { type: String, lowercase: true, unique: 'This username is already taken' },
     registrationToken: { type: String, default: getToken() },
     registrationTokenExpires: { type: Date, default: setRegistrationExpirationDate() },
     passwordResetToken: String,
@@ -60,7 +60,7 @@ var userSchema = new Schema({
     twitter: {
         id: String,
         token: String,
-        username: String,
+        //username: String,
         image: String,
     },
     google: {
@@ -73,7 +73,7 @@ var userSchema = new Schema({
     admin: Boolean
 });
 
-
+/*
 userSchema.methods.generateJWT = function() {
     // set expiration to 60 days
     var today = new Date();
@@ -82,6 +82,7 @@ userSchema.methods.generateJWT = function() {
     //var secret = uuid.v4();
     return jwt.sign({ _id: this._id, username: this.username, exp: parseInt(exp.getTime() / 1000) }, process.env.API_TOKEN_KEY);
 };
+*/
 
 userSchema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString('hex');
@@ -119,7 +120,7 @@ userSchema.pre('save', function(callback) {
 });
 
 // set up a mongoose model and pass it using module.exports
-userSchema.plugin(beautifyUnique);
+//userSchema.plugin(beautifyUnique);
 //userSchema.plugin(useTimestamps);
 const User = module.exports = mongoose.model('User', userSchema);
 
@@ -140,11 +141,12 @@ module.exports.emailVerified = function(email, token, callback) {
 module.exports.getPasswordResetToken = function() {
     return getToken();
 }
-
+/*
 module.exports.getUserByUsername = function(username, callback) {
     var query = { username: username };
     User.findOne(query, callback);
 }
+*/
 module.exports.getUserByEmail = function(email, callback) {
     var query = { email: email };
     User.findOne(query, callback);

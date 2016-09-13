@@ -33,7 +33,6 @@ module.exports.controller = function(app) {
           //error on fb
           return showLoginErrorMessage(req, res, null, socialNetworkTitleCase + ' problem with Facebook Application Setup.');
         }
-        //console.log(data.profile.emails[0].value);
         var socialUserID = data.profile.id;
         var socialUserData = {
             socialNetwork: socialNetwork,
