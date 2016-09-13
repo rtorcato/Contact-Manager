@@ -3,7 +3,7 @@ Contact Manager Inc
 
 ## Licensing
 
-The files in this repository are, unless stated otherwise, released under the Apache License. You are free to redistribute this code with or without modification. The full license text is available [here](http://www.apache.org/licenses/LICENSE-2.0).
+The files in this repository are, unless stated otherwise, released under the Mit License. You are free to redistribute this code with or without modification. The full license text is available [here](http://choosealicense.com/licenses/mit/).
 
 Description
 -----------
@@ -41,6 +41,7 @@ $ mv sample.env .env
 ## Running the application
 * Set environment variables for your server by editing the .env file
 * Default port is 8080 and can be changed in the .env file
+* Set FACEBOOK_APP_ID and FACEBOOK_APP_SECRET in the .env file
 
 ```term
 $ npm start

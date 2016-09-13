@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
    <div class="container">
      <div class="navbar-header">
        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -7,13 +7,32 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </button>
-       <a class="navbar-brand" href="#">Contact Manager Inc</a>
+       <a class="navbar-brand" href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;Contact Manager Inc</a>
      </div>
      <div id="navbar" class="navbar-collapse collapse">
-       <form class="navbar-form navbar-right">
-         <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#modalRegistration">Register</button>
-         <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#modalLogin">Sign in</button>
-       </form>
+
+       <ul class="nav navbar-nav navbar-right">
+         {% if user == null %}
+         <li>
+           <a class="btn btn-facebook" style="margin-top:10px;padding:5px 10px" href="/auth/login/facebook"><i class="fa fa-facebook"></i> | Login with Facebook</a>
+         </li>
+         {% endif %}
+         {% if user %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle navbar-userImageLink" style="min-height: 50px;font-size: 18px;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <img class="navbar-userImage" src="{{user.picture}}" style="margin-right:4px"/>
+              {{ user.firstname }}  {{ user.lastname}} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu navbar-userImageLinkDropdown">
+              <li><a href="#" onclick="alert('No profile page setup')">My Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#" onclick="alert('No settings page setup')">Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/auth/logout">Log Out</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          </ul>
      </div><!--/.navbar-collapse -->
    </div>
 </nav>

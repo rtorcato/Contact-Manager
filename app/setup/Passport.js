@@ -1,29 +1,16 @@
 const passport = require('passport');
 const LocalStrategy = require("passport-local").Strategy;
 const BasicStrategy = require('passport-http').BasicStrategy;
-//const FacebookStrategy = require('passport-facebook').Strategy;
-//const TwitterStrategy = require('passport-twitter').Strategy;
-//const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 
 var User = require("./../models/user");
 var callbackURL = process.env.BASE_URL + '/auth/login/';
+
 var localOptions = {
     usernameField: 'email',
     passwordField: 'password',
     session: true,
     passReqToCallback: true
-};
-/*
-var googleOptions = {
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: callbackURL + 'google/callback'
-};
-var twitterOptions = {
-    consumerKey: process.env.TWITTER_CONSUMER_KEY,
-    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: callbackURL + 'twitter/callback',
-    includeEmail: true
 };
 
 var facebookOptions = {
@@ -31,11 +18,7 @@ var facebookOptions = {
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: callbackURL + 'facebook/callback',
     profileFields: ['email', 'id', 'first_name', 'gender', 'last_name', 'picture'],
-    //profileFields: ['id', 'displayName', 'link', 'about_me', 'photos', 'email'],
-    //passReqToCallback: true, enableProof: true
 }
-*/
-
 
 module.exports.init = function(app) {
     app.use(passport.initialize());
@@ -54,26 +37,13 @@ module.exports.init = function(app) {
             done(err, user);
         });
     });
-    /*
-    passport.use(new TwitterStrategy(twitterOptions, function(accessToken, refreshToken, profile, done) {
-      process.nextTick(function() {
-        done({ accessToken: accessToken, refreshToken: refreshToken, profile: profile });
-        });
-    }));
-    */
-       /*
     passport.use(new FacebookStrategy(facebookOptions, function(accessToken, refreshToken, profile, done) {
       // make the code asynchronous User.findOne won't fire until we have all our data back from Twitter
         process.nextTick(function() {
-        done({ accessToken: accessToken, refreshToken: refreshToken, profile: profile });
+          done({ accessToken: accessToken, refreshToken: refreshToken, profile: profile });
         });
     }));
-passport.use(new GoogleStrategy(googleOptions, function(accessToken, refreshToken, profile, done) {
-      process.nextTick(function() {
-        done({ accessToken: accessToken, refreshToken: refreshToken, profile: profile });
-        });
-    }));
-    */
+
     // =========================================================================
     // Basic login ============================================================
     // =========================================================================
@@ -111,7 +81,6 @@ passport.use(new GoogleStrategy(googleOptions, function(accessToken, refreshToke
 
     passport.use("local-login", new LocalStrategy(localOptions, function(req, email, password, done) {
         // asynchronous
-        // User.findOne wont fire unless data is sent back
         process.nextTick(function() {
             User.findOne({ email: email, status:'active' }, function(err, user) {
                 if (err) {return done(err);}

@@ -88,14 +88,17 @@
 
 .btn-social(@color-bg, @color: #fff) {
   background-color: @color-bg;
+  color:white !important;
   .button-variant(@color, @color-bg, rgba(0,0,0,.2));
 }
+
 
 
 .btn-adn           { .btn-social(#d87a68); }
 .btn-bitbucket     { .btn-social(#205081); }
 .btn-dropbox       { .btn-social(#1087dd); }
 .btn-facebook      { .btn-social(#3b5998); }
+.btn-facebook:hover     { background-color: #3b5998 !important; }
 .btn-flickr        { .btn-social(#ff0084); }
 .btn-foursquare    { .btn-social(#f94877); }
 .btn-github        { .btn-social(#444444); }

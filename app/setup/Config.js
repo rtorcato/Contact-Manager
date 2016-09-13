@@ -96,7 +96,7 @@ module.exports.init = function(app, express) {
     }
 
     app.locals.foo = "bar";
-    app.locals.appName = config.appName; //process.env.APP_NAME
+    app.locals.appName = process.env.APP_NAME; //process.env.APP_NAME
     app.locals.baseURL = process.env.BASE_URL;
     app.locals.fbAppID = process.env.FACEBOOK_APP_ID;
     app.locals.assetURL = process.env.ASSET_PATH;

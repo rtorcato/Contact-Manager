@@ -4,8 +4,6 @@ const app = express();
 const flash = require('connect-flash');
 //var HTTPS = require("https").Server(app);
 const HTTP = require('http').Server(app);
-//
-const passport = require("./app/setup/Passport");
 // Create our Express router
 const router = express.Router();
 //
@@ -14,6 +12,7 @@ const helper = require("./app/helpers/general.js");
 // Config
 // =======================
 const config = require("./app/setup/Config").init(app, express);
+const passport = require("./app/setup/Passport");
 // =======================
 // Logging
 // =======================
