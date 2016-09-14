@@ -19,6 +19,17 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAZUlEQVQ4y2NgGAWjYBSggaqGu5FA/BOIv2PBIPFEUgxjB+IdQPwfC94HxLykus4GiD+hGfQOiB3J8SojEE9EM2wuSJzcsFMG4ttQgx4DsRalkZENxL+AuJQaMcsGxBOAmGvopk8AVz1sLZgg0bsAAAAASUVORK5CYII= ');
 }
 
+.badge-facebook{
+   background:#006699;
+   position:relative;
+
+   top: -40px;
+   left: -35px;
+  }
+  .badge-facebook i{
+     padding:2px;
+    }
+
 
 
     .thumbnail-footer {
@@ -462,9 +473,10 @@
           <div class="col-xs-12 ">
             <div class="well">
               {% for user in users %}
-
-              <img src="https://graph.facebook.com/{{user.facebook.id}}/picture?type=large" class="img-circle" width="100" height="100" style="margin:0px 10px" >
-
+              <span>
+              <img src="https://graph.facebook.com/{{user.facebook.id}}/picture?type=large" class="img-circle" width="100" height="100" style="margin:0px 5px" >
+              <span class="badge badge-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+            </span>
                {% endfor %}
             </div>
           </div>
