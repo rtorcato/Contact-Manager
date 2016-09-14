@@ -29,6 +29,7 @@ module.exports.controller = function(app) {
             ///user clicked cancel to accept facebook app or other fb error
             return showLoginErrorMessage(req, res, null, socialNetworkTitleCase + ' login failed.');
         }
+        console.log(data.profile.photos);
         if (data.status == 500){
           //error on fb
           return showLoginErrorMessage(req, res, null, socialNetworkTitleCase + ' problem with Facebook Application Setup.');
