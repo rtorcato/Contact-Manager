@@ -12,7 +12,7 @@ module.exports = {
     //auth middleware
     isApiAuthenticated: passport.authenticate('client-basic', { session: false }),
     isAuthenticated: passport.authenticate('client-basic', { session: true }),
-    facebookLogin: facebookLogin,
+    doFacebookLogin: doFacebookLogin,
     doFacebookCallback: doFacebookCallback,
 };
 
@@ -26,8 +26,7 @@ function doLogout(req, res) {
     res.redirect("/");
 }
 
-function facebookLogin(req, res, next) {
-      //console.log('fb login');
+function doFacebookLogin(req, res, next) {
    passport.authenticate('facebook', { session: false, authType: 'rerequest', scope: ['email'] })(req, res, next);
 }
 

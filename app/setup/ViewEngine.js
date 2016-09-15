@@ -1,6 +1,5 @@
 var nunjucks = require('nunjucks');
 //http://mozilla.github.io/nunjucks/templating.html
-//var _templates = process.env.NODE_PATH ? process.env.NODE_PATH + '/templates' : 'templates' ;
 module.exports.init = function(app) {
     nunjucks.configure('views', {
         autoescape: true,
