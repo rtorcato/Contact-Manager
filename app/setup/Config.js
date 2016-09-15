@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+const express = require('express');
 //const NODE_ENV = require("node-env");
 const path = require("path");
 const favicon = require('serve-favicon');
@@ -17,12 +18,11 @@ const flash = require('connect-flash');
 const uuid = require('uuid');
 const methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 const formidable = require('formidable'); // Formidable is required to accept file uploads
-var config = require('./../../config/app'); // get our main app config file
 
 require('datejs'); //https://www.npmjs.com/package/datejs
 
 
-module.exports.init = function(app, express) {
+module.exports.init = function(app) {
     //app.use(csurf);
     dotenv.load({ path: '.env' }); //Load environment variables from .env file, where API keys and passwords are configured.
     const port = process.env.PORT || 8081; // set our port
@@ -71,11 +71,10 @@ module.exports.init = function(app, express) {
     app.use(favicon(publicPath + '/ico/favicon.ico'));
     // Import credentials which are used for secure cookies
     // Install the cookie middleware
-    const config = require('./../../config/app');
-    app.set('superSecret', config.secret); // secret variable
+    app.set('superSecret', process.env.APP_SECRET); // secret variable
     //app.use(require('cookie-parser')(config.cookieSecret));
     var cookieParser = require('cookie-parser');
-    app.use(cookieParser(config.cookieSecret));
+    app.use(cookieParser(process.env.COOKIE_SECRET));
 
     // Disable etag headers on responses
     //app.disable('etag');
@@ -94,8 +93,7 @@ module.exports.init = function(app, express) {
     }else{
       app.locals.devMode = false;
     }
-
-    app.locals.foo = "bar";
+    //app.locals.foo = "bar";
     app.locals.appName = process.env.APP_NAME; //process.env.APP_NAME
     app.locals.baseURL = process.env.BASE_URL;
     app.locals.fbAppID = process.env.FACEBOOK_APP_ID;

@@ -10,6 +10,15 @@ module.exports = {
         console.log("ERROR: " + reason);
         res.status(code || 500).json({ "error": message });
     },
+    // function to slugify a name
+    slugify: function (text) {
+      return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+        .replace(/^-+/, '')             // Trim - from start of text
+        .replace(/-+$/, '');            // Trim - from end of text
+    },
     parseURL: function(url) {
         var parsedURL = url.parse("http://www.example.com/profile?name=barry");
         console.log(parsedURL.protocol); // "http:"

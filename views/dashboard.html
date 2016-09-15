@@ -19,16 +19,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAZUlEQVQ4y2NgGAWjYBSggaqGu5FA/BOIv2PBIPFEUgxjB+IdQPwfC94HxLykus4GiD+hGfQOiB3J8SojEE9EM2wuSJzcsFMG4ttQgx4DsRalkZENxL+AuJQaMcsGxBOAmGvopk8AVz1sLZgg0bsAAAAASUVORK5CYII= ');
 }
 
-.badge-facebook{
-   background:#006699;
-   position:relative;
 
-   top: -40px;
-   left: -35px;
-  }
-  .badge-facebook i{
-     padding:2px;
-    }
 
 
 
@@ -78,107 +69,7 @@
       margin: 0 auto;
     }
 
-    .spinner {
-  -webkit-animation: loader-rotator 1.4s linear infinite;
-          animation: loader-rotator 1.4s linear infinite;
-}
 
-@-webkit-keyframes loader-rotator {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg);
-  }
-}
-
-@keyframes loader-rotator {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg);
-  }
-}
-.path {
-  stroke-dasharray: 187;
-  stroke-dashoffset: 0;
-  -webkit-transform-origin: center;
-      -ms-transform-origin: center;
-          transform-origin: center;
-  -webkit-animation: loader-dash 1.4s ease-in-out infinite, loader-colors 5.6s ease-in-out infinite;
-          animation: loader-dash 1.4s ease-in-out infinite, loader-colors 5.6s ease-in-out infinite;
-}
-
-@-webkit-keyframes loader-colors {
-  0% {
-    stroke: #4285F4;
-  }
-  25% {
-    stroke: #DE3E35;
-  }
-  50% {
-    stroke: #F7C223;
-  }
-  75% {
-    stroke: #1B9A59;
-  }
-  100% {
-    stroke: #4285F4;
-  }
-}
-
-@keyframes loader-colors {
-  0% {
-    stroke: #4285F4;
-  }
-  25% {
-    stroke: #DE3E35;
-  }
-  50% {
-    stroke: #F7C223;
-  }
-  75% {
-    stroke: #1B9A59;
-  }
-  100% {
-    stroke: #4285F4;
-  }
-}
-@-webkit-keyframes loader-dash {
-  0% {
-    stroke-dashoffset: 187;
-  }
-  50% {
-    stroke-dashoffset: 46.75;
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
-  }
-  100% {
-    stroke-dashoffset: 187;
-    -webkit-transform: rotate(450deg);
-            transform: rotate(450deg);
-  }
-}
-@keyframes loader-dash {
-  0% {
-    stroke-dashoffset: 187;
-  }
-  50% {
-    stroke-dashoffset: 46.75;
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
-  }
-  100% {
-    stroke-dashoffset: 187;
-    -webkit-transform: rotate(450deg);
-            transform: rotate(450deg);
-  }
-}
 </style>
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron heroBackground">
@@ -462,31 +353,18 @@
             </div>
         </div>
     </div>
-    <section>
 
-        <div class="row">
-          <div class="col-xs-12" style="padding-bottom:10px">
-            <h3>Look who just joined our application!</h3>
-          </div>
-        </div>
-        <div class="row " >
-          <div class="col-xs-12 ">
-            <div class="well">
-              {% for user in users %}
-              <span>
-              <img src="https://graph.facebook.com/{{user.facebook.id}}/picture?type=large" class="img-circle" width="100" height="100" style="margin:0px 5px" >
-              <span class="badge badge-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-            </span>
-               {% endfor %}
-            </div>
-          </div>
-        </div>
-    </section>
     <div class="table-loader">
         <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
             <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
         </svg>
     </div>
+
+    <p>
+      <a href="https://heroku.com/deploy?template=https://github.com/rtorcato/contactmanager"><img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;"></a>
+    </p>
+    <p>
+    <a target="_blank" href="https://github.com/rtorcato/contactmanager"><i class="fa fa-github" aria-hidden="true"></i> View source on Github</p></a>
 
 </div>
 
@@ -584,8 +462,6 @@
                 });
             }
         });
-
-        $("[data-toggle=tooltip]").tooltip();
     });
 </script>
 {% endblock %}

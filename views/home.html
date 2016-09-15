@@ -27,85 +27,32 @@
         </div>
     </div>
 
+    <section>
+        <div class="row">
+          <div class="col-xs-12" style="padding-bottom:10px">
+            <h3>Look who just joined our application!</h3>
+          </div>
+        </div>
+        <div class="row " >
+          <div class="col-xs-12 ">
+            <div class="well">
+              {% for user in users %}
+              <span>
+              <img src="https://graph.facebook.com/{{user.facebook.id}}/picture?type=large" class="img-circle" width="100" height="100" style="margin:0px 5px" >
+              <span class="badge badge-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+            </span>
+               {% endfor %}
+            </div>
+          </div>
+        </div>
+    </section>
 
     <hr>
 
+
     <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
-    
+
 </div>
 <!-- /container -->
 
-<!-- Modals -->
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Sign In</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" role="form" method="POST" action="/auth/login">
-                    <input type="hidden" name="_csrf" value="">
-
-
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">E-Mail Address</label>
-                        <div class="col-md-6">
-                            <div class="required-field-block">
-                                <input type="email" class="form-control" required="" autofocus="" name="email" value="">
-                                <div class="required-icon">
-                                    <div class="text">*</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Password</label>
-                        <div class="col-md-6">
-                            <div class="required-field-block">
-                                <input type="password" class="form-control" required="" autofocus="" name="password">
-                                <div class="required-icon">
-                                    <div class="text">*</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" class="btn primary-btn1 btn-primary -white1 btn-block">Login</button>
-                        </div>
-                    </div>
-                    <div class="row" style="text-align:center">
-                        <div class="col-md-12" style="text-align:right">
-                            <a class="btn btn-link" href="/auth/password/forgot">Forgot Your Password?</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="modalRegistration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Register</h4>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}

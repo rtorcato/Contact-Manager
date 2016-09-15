@@ -1,4 +1,5 @@
-var User = require("./../models/user");
+
+
 
 var middleware = function(app) {
     app.use(function(req, res, next) {

@@ -9,6 +9,7 @@ var gravatar = require('gravatar');
 404 Not Found
  */
 module.exports.controller = function(router) {
+
   router.get('/contacts', function(req, res) {
 
           // Use the Contact model to find all contacts
