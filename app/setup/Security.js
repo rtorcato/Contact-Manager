@@ -6,7 +6,6 @@ var lusca = require('lusca'); //https://www.npmjs.com/package/lusca
 //const limiter = require('connect-ratelimit');//https://www.npmjs.com/package/connect-ratelimit
 
 module.exports.init = function(app) {
-
     app.disable('x-powered-by'); // Block the header from containing information about the server
     // =======================
     // limiter
